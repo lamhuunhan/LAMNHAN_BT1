@@ -1,0 +1,35 @@
+Êşº¾   7 £  LamNhan_Chain  java/lang/Object 
+blockchain Ljava/util/ArrayList; 	Signature Ljava/util/ArrayList<LBlock;>; 
+difficulty I <clinit> ()V Code  java/util/ArrayList
+     <init>	    	   	 
+ LineNumberTable LocalVariableTable
+   this LLamNhan_Chain; main ([Ljava/lang/String;)V  Block ! Hi im the first block # 0
+  %  & '(Ljava/lang/String;Ljava/lang/String;)V
+  ( ) * add (Ljava/lang/Object;)Z	 , . - java/lang/System / 0 out Ljava/io/PrintStream; 2 Trying to Mine block 1... 
+ 4 6 5 java/io/PrintStream 7 8 println (Ljava/lang/String;)V
+  : ; < get (I)Ljava/lang/Object;
+  > ? @ 	mineBlock (I)V B Yo im the second block
+  D E F size ()I	  H I J hash Ljava/lang/String; L Trying to Mine block 2...  N Hey im the third block P Trying to Mine block 3...  R java/lang/StringBuilder T 
+Blockchain is Valid: 
+ Q V  8
+  X Y Z isChainValid ()Ljava/lang/Boolean;
+ Q \ ] ^ append -(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ Q ` a b toString ()Ljava/lang/String; d com/google/gson/GsonBuilder
+ c 
+ c g h i setPrettyPrinting ()Lcom/google/gson/GsonBuilder;
+ c k l m create ()Lcom/google/gson/Gson;
+ o q p com/google/gson/Gson r s toJson &(Ljava/lang/Object;)Ljava/lang/String; u 
+The block chain:  args [Ljava/lang/String; blockchainJson z java/lang/String
+ y |  } ([C)V
+ y  €  replace (CC)Ljava/lang/String;
+  ƒ „ b calculateHash
+ y † ‡ * equals ‰ Current Hashes not equal
+ ‹  Œ java/lang/Boolean   valueOf (Z)Ljava/lang/Boolean;	  ‘ ’ J previousHash ” Previous Hashes not equal
+ y – — ˜ 	substring (II)Ljava/lang/String; š This block hasn't been mined currentBlock LBlock; previousBlock 
+hashTarget i StackMapTable 
+SourceFile LamNhan_Chain.java !      	         	 	 
+           3      » Y· ³ ³ ±       
+     
+               /     *· ±                        	      F     Ş² » Y "· $¶ 'W² +1¶ 3² ¶ 9À ² ¶ =² » YA² ² ¶ Cd¶ 9À ´ G· $¶ 'W² +K¶ 3² ¶ 9À ² ¶ =² » YM² ² ¶ Cd¶ 9À ´ G· $¶ 'W² +O¶ 3² ¶ 9À ² ¶ =² +» QYS· U¸ W¶ [¶ _¶ 3» cY· e¶ f¶ j² ¶ nL² +t¶ 3² ++¶ 3±       :      	  
+ *  N  V  f  Š  ’  ¢  º  Î  Ö  İ         Ş v w   Î  x J  	 Y Z    L     —» yY² ¼· {0¶ ~M>§ s² ¶ 9À K² d¶ 9À L*´ G*¶ ‚¶ …š ² +ˆ¶ 3¸ Š°+´ G*´ ¶ …š ² +“¶ 3¸ Š°*´ G² ¶ •,¶ …š ² +™¶ 3¸ Š°„² ¶ C¡ÿ‰¸ Š°       >         #  0  >   F ! K $ Y % a & f ) x * € + …  ’ .    *  # e › œ   0 X  œ   „  J   } Ÿ 
+      / ÿ     y  ÿ 2    y  ÿ     y    ¡    ¢
